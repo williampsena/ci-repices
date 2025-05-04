@@ -15,5 +15,7 @@ output:
 scan:
   config:
     enabled: true
+  secrets:
+    enabled: true
 
 timeout: 5m

@@ -10,7 +10,10 @@ Trivy is a comprehensive and easy-to-use vulnerability scanner for container ima
 
 ```shell
 docker build -f Containerfile -t test-nginx .
-trivy image test-nginx
+trivy --config trivy/trivy.yaml image test-nginx
+
+# with fs
+trivy --config trivy/trivy.yaml fs .
 ```
 
 ### Scan Results

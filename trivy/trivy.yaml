@@ -17,5 +17,10 @@ scan:
     enabled: true
   secrets:
     enabled: true
+  iac:
+    enabled: true
+    policies:
+      - terraform
+      - kubernetes
 
 timeout: 5m

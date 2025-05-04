@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vulnerable-deployment
+  labels:
+    app: vulnerable-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vulnerable-app
+  template:
+    metadata:
+      labels:
+        app: vulnerable-app
+    spec:
+      containers:
+      - name: vulnerable-container
+        image: nginx:1.16
+        ports:
+        - containerPort: 80
+        env:
+        - name: SECRET_KEY
+          value: "hardcoded-secret"
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "1Gi"
+            cpu: "1"

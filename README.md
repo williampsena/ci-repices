@@ -14,7 +14,9 @@ trivy --config trivy/trivy.yaml image test-nginx
 
 # with fs
 trivy --config trivy/trivy.yaml fs .
-```
+
+# with iac
+trivy --config trivy/trivy.yaml config .
 
 ### Scan Results
 

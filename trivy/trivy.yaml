@@ -1,0 +1,19 @@
+severity:
+  - HIGH
+  - CRITICAL
+
+ignore-unfixed: true
+
+ignore:
+  vulnerabilities:
+    - CVE-2021-12345
+    - CVE-2022-67890
+
+output:
+  format: table
+
+scan:
+  config:
+    enabled: true
+
+timeout: 5m

@@ -22,7 +22,9 @@ jobs:
       with:
         scan-type: 'fs'
         scan-ref: '.'
-        trivy-config: trivy.yaml
+        trivy-config: trivy/trivy.yaml
+        severity: 'HIGH,CRITICAL'
+        exit-code: 2
 
     - name: Build Docker image
       run: docker build -f Containerfile -t local-nginx .
@@ -32,3 +34,6 @@ jobs:
       with:
         scan-type: 'image'
         image-ref: 'local-nginx'
+        trivy-config: trivy/trivy.yaml
+        severity: 'HIGH,CRITICAL'
+        exit-code: 2
